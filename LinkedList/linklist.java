@@ -7,7 +7,7 @@ public class Link{
     public Link next;
 
     //Constructor
-    public Link(String bookname, int millionSold){
+    public Link(String int bookname, int millionSold){
       this.bookname = bookname;
       this.millionSold = millionSold;
     }
@@ -16,9 +16,10 @@ public class Link{
       System.out.println(bookname + ": " + millionSold + ",000,000");
     }
 
+
     public String toString(){
       return bookname;
-    }
+
 }
 
 
