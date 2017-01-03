@@ -1,0 +1,25 @@
+h1{
+  /*color:black;*/
+  border: thin solid black;
+}
+
+li{
+  /*color: blue;*/
+}
+
+.crossed{
+  text-decoration: line-through;
+}
+
+.best{
+  text-decoration: underline;
+  border: thin solid black;
+  background: yellow;
+}
+
+body{
+  background-color: pink;
+  /*background: url(http://cdn.paper4pc.com/images/subtle-wallpaper-8.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;*/
+}

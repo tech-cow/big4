@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Werewolves</title>
+  <link rel="stylesheet" href="werewolf.css">
 </head>
 
 <body>
@@ -129,39 +130,54 @@
 
 
 <!-- A quick survey -->
-<form>
-  <div>
-    <p><b>Does this site help?</b></p>
+<h1>Survey</h1>
+<div>
+
+  <p><b>Who is the best worewolf player in the world?</b></p>
+  <ul>
+    <li class="crossed">
+      <input type="radio" value="false" name="mul" id="Zhs">
+      <label for="zhs">Zhs</label>
+    </li>
+
+    <li class="crossed">
+      <input type="radio" value="false" name="mul" id="Zhs2.0">
+      <label for="Zhs2.0">Zhs2.0</label>
+    </li>
+
+    <li class="best">
+      <input type="radio" value="false" name="mul" id="Yu">
+      <label for="Yu">Yu</label>
+    </li>
+
+
+
+  <p><b>Does this site help?</b></p>
+  <form>
     <label for="yes">Yes: </label>
     <input name="boolean" id="yes" type="radio" value="YES">
     <label for="no">No: </label>
     <input name="boolean" id="no" type="radio" value="NO">
-  </div>
 
-  <div>
-    <label for="mood">Mood?</label>
-    <select id="mood" name="mood">
+    <p><b>What is your mood right now?</b></p>
+    <select name="mood">
       <option value="happy">:)</option>
       <option value="sad">:(</option>
       <option value="meh">:|</option>
     </select>
-  </div>
 
-    <label for="rate">Rate me!</label>
-    <select id="rate" name= "rate">
-      <option value="one">1</option>
-      <option value="two">2</option>
-      <option value="three">3</option>
+    <p><b>Rate me!</b></p>
+    <select name= "rate">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
     </select>
-
     <button>Go!</button>
-</form>
+  </form>
 
-<!-- Comments -->
-  <div>
-    <h3>Comments:</h3>
-    <textarea name="fourm box" rows="8" cols="80"></textarea>
-  </div>
+<h3>Comments:</h3>
+<textarea name="fourm box" rows="8" cols="80"></textarea>
+
 
 </div>
 
