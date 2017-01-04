@@ -1,54 +1,51 @@
+
 *{
-  font-family: 'Yatra One', cursive;
+  font-family: 'Raleway', cursive;
 }
 
-h1{
-  /*color:black;*/
-  border: thin solid black;
-  /*margin-left: 50%;*/
-  width: 20%;
-  font-family: 'Monoton', cursive;
+hr{
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.h_image img{
+  width: 100%;
+}
+
+.main_body{
+  border: 20px hidden #f1f1f1;
+  padding: 20px;
+  /*width: 80%;*/
+  margin: 20px 1.66%;
+}
+
+.left_border{
+  border-left: 5px solid #bdc3c7;
+  padding: 10px;
+}
+
+.header_text{
+  /*margin-left: 1.66%;*/
+  font-family: Raleway;
   font-size: 30px;
-  font-weight: bold;
-  text-align: center;
-  margin: 0px auto 0px auto
+  font-weight: 800;
+  text-transform: uppercase;
+  border-bottom: 3px solid #f1f1f1;
+  padding-bottom: 20px;
+  width: 30%
 }
 
-table{
-  margin: auto;
+.image img{
+  width: 30%;
+  margin: 1.4%;
+  clear: left;
 }
 
-img {
-    display: block;
-    margin: auto;
-    width: 40%;
-}
-
-/*div:nth-of-type(1){
-  text-align: center;
-}*/
-
-.log_in{
-  text-align: center;
-}
-
-.image{
-  align-content: center;
-}
-
-.role{
-  /*border: thin hidden black;
-  margin: auto;
-  width: 50%;*/
-}
-
-span{
-  font-size: 2em;
-}
-
-li{
-  /*color: blue;*/
-}
+/*span{*/
+  /*font-size: 2em;*/
+/*}*/
 
 .crossed{
   text-decoration: line-through;
@@ -59,11 +56,4 @@ li{
   width: 20%;
   border: thin solid black;
   background: yellow;
-}
-
-body{
-  background-color: pink;
-  /*background: url(http://cdn.paper4pc.com/images/subtle-wallpaper-8.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;*/
 }
