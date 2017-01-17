@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Love</title>
-  </head>
+<% include partials/header %>
+
   <body>
-    <h1>you fell in love with: <%= thingVar %></h1>
-    <p>P.S. this is from love.ejs</p>
-  </body>
-</html>
+      <h1>you fell in love with: <%= thingVar.toUpperCase() %></h1>
+      <% if (thingVar.toLowerCase() === "rusty"){ %>
+        <p>You rock</p>
+      <% } else { %>
+        <p>You suck</p>
+      <% } %>
+
+
+<% include partials/footer %>
