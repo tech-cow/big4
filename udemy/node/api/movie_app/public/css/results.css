@@ -1,0 +1,17 @@
+/*font-family: 'Cabin Sketch', cursive;*/
+
+body{
+  background: black;
+}
+
+ul li{
+  display: inline;
+  float: left;
+}
+
+
+div{
+    display: inline;
+    float: left;
+  }
+}

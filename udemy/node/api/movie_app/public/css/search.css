@@ -1,0 +1,40 @@
+.container {
+    height: 100%;
+    text-align: center;
+    color: #fff;
+}
+
+.video-section .pattern-overlay {
+    background-color: rgba(71, 71, 71, 0.29);
+    padding: 110px 0 32px;
+    min-height:800px;
+}
+
+.video-section h1 {
+    font-size: 80px;
+    font-family: 'Cabin Sketch', cursive;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 40px auto 0px;
+    text-shadow: 1px 1px 1px #000;
+    -webkit-text-shadow: 1px 1px 1px #000;
+    -moz-text-shadow: 1px 1px 1px #000;
+}
+
+.video-section h3 {
+    font-size: 20px;
+    font-family: 'Cabin Sketch', cursive;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 40px auto 0px;
+    text-shadow: 1px 1px 1px #000;
+    -webkit-text-shadow: 1px 1px 1px #000;
+    -moz-text-shadow: 1px 1px 1px #000;
+}
+
+#search{
+  padding-top: 50px;
+  font-size: 20px;
+  font-family: 'Cabin Sketch', cursive;
+  color: black;
+}

@@ -1,0 +1,52 @@
+<%# Authur: Yu Zhou%>
+    <%include partials/header %>
+        <script src="http://pupunzi.com/mb.components/mb.YTPlayer/demo/inc/jquery.mb.YTPlayer.js"></script>
+        <link rel="stylesheet" href="css/search.css">
+
+        </head>
+
+        <script>
+            $(document).ready(function() {
+
+                $(".player").mb_YTPlayer();
+
+            });
+        </script>
+
+        <body>
+            <!--Video Section-->
+            <section class="video-section">
+                <div class="pattern-overlay">
+                    <div class="container ">
+                        <!--background video-->
+                            <a id="bgndVideo" class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=NZlfxWMr7nc',
+                                containment:'body',
+                                quality:'hd720',
+                                autoPlay:true,
+                                mute:true,
+                                startAt: 6,
+                                opacity: 1}"
+                                >bg
+                            </a>
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h1>IMoiveYu</h1>
+                                    <h3>Welcome to Yu's movie searching site</h3>
+                                </div>
+                            </div>
+
+                            <div id= "search">
+                              <form action="/results" method="GET">
+                                  <input type="text" name="movieName" placeholder="Enter a movie name">
+                                  <button>Search</button>
+                              </form>
+                            </div>
+                            <!--/row-->
+                    </div>
+                    <!--/container-->
+                </div>
+                <!--/pattern-->
+            </section>
+
+            <%include partials/footer %>
