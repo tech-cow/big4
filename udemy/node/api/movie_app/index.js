@@ -4,6 +4,7 @@ var request = require("request")
 
 /******* Configuration *******/
 app.set("view engine","ejs");
+app.set('port',(process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
 
@@ -28,6 +29,6 @@ app.get("/results", function(req,res){
     })
 });
 
-app.listen(3000, function(){
+app.listen(app.get('port'), function(){
     console.log("Server started!");
 });
