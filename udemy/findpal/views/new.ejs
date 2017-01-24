@@ -1,0 +1,34 @@
+<% include ./partials/header %>
+
+<div class="ui main text container segment">
+  <div class="ui huge header">分享狼窝</div>
+  <form class="ui form" action="/blogs" method="POST">
+    <div class="field">
+      <label>标题</label>
+      <input type="text" name="blog[title]" placeholder="标题">
+    </div>
+    <div class="field">
+      <label>图片URL</label>
+      <input type="text" name="blog[image]" placeholder="图片URL">
+    </div>
+    <div class="field">
+      <label>聚集地</label>
+      <input type="text" name="blog[location]" placeholder="聚集地">
+    </div>
+    <div class="field">
+      <label>微信</label>
+      <input type="text" name="blog[wechat]" placeholder="微信">
+    </div>
+    <div class="field">
+      <label>内容</label>
+      <textarea name="blog[body]"></textarea>
+    </div>
+
+    <input class="ui black basic button" type="submit">
+
+
+  </form>
+</div>
+
+
+<% include ./partials/footer %>

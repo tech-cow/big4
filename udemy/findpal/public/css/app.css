@@ -1,0 +1,11 @@
+/*body{
+  background: black;
+}*/
+
+.content, .navbar{
+  margin-top: 2em;
+}
+
+.main.text.container{
+  margin-top: 2.5em;
+}

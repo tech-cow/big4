@@ -1,0 +1,58 @@
+<% include ./partials/header %>
+<div class='navbar ui main text container'>
+  <div class="ui secondary menu">
+    <a class="item"><img class="logo" src="logo/main_white.png" style="width: 75px"></a>
+    <div class="right menu">
+      <a class="ui item">找狼窝</a>
+      <a class="ui item">分享狼窝</a>
+
+      <a class="ui item">
+        <i class="settings icon"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<div class='ui main text content container'>
+  <div class='ui huge header'>狼窝</div>
+    <div class='ui top attached segment'>
+        <div class='ui divided items'>
+            <% blogs.forEach(function(blog){ %>
+                <div class='item'>
+                    <div class='image'>
+                        <img src='<%= blog.image %>'>
+                    </div>
+                    <div class='content'>
+                        <a class='header'>
+                            <%=blog.title%>
+                        </a>
+                        <div class='meta'>
+                            <span><%= blog.created.toDateString() %></span>
+                        </div>
+                        <div class='description'>
+                            <p><%= blog.body%>...</p>
+
+                        </div>
+                        <div class='extras'>
+                            <a class='ui floated basic black button'>
+                                Read More
+                                <i class='right chevron icon'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+              <% }) %>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<% include ./partials/footer %>
