@@ -76,7 +76,16 @@ app.post("/blogs", function(req,res){
 });
 
 // #4 SHOW ROUTE
-
+app.get("/blogs/:id", function(req,res){
+  Blog.findById(req.params.id, function(err,foundData){
+      if (err) {
+          res.redirect("/blogs")
+      } else {
+          // *2* pass data to the rendered page
+          res.render('show', {blog: foundData})
+      }
+  });
+});
 
 // #5 EDIT ROUTE
 
