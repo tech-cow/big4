@@ -70,10 +70,9 @@ app.post("/blogs", function(req,res){
           res.render("new")
       } else {
         // *2* Post it back (redirect) to the blog site
-          res.redirect("/blog");
+          res.redirect("/blogs");
       }
   })
-
 });
 
 // #4 SHOW ROUTE
