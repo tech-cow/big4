@@ -107,14 +107,23 @@ app.get('/blogs/:id/edit', function(req,res){
 app.put('/blogs/:id', function(req,res){
     Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, updatedData){
       if (err) {
-        res.redirect("/blogs")
+        res.redirect("/blogs");
       } else {
-        res.redirect("/blogs")
+        res.render("/blogs" + req.params.id);
       }
     });
 });
 
 // #7 DESTROY ROUTE
+app.delete("/blogs/:id", function(req,res){
+    Blog.findByIdAndRemove(req.params.id, function(err){
+        if (err) {
+          res.redirect("/blogs");
+        } else {
+          res.redirect("/blogs");
+        }
+    });
+});
 
 
 // SERVER
