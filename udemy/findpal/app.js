@@ -2,6 +2,7 @@
 var express     = require('express'),
     mongoose    = require('mongoose'),
     bodyParser  = require('body-parser'),
+    methodOverride = require('method-override'),
     app         = express();
 
 
@@ -10,6 +11,8 @@ mongoose.connect('mongodb://localhost/findpal');
 app.set("view engine","ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
+
 
 
 /*********** MONGOOSE/MODEL CONFIG ***********/
@@ -88,10 +91,28 @@ app.get("/blogs/:id", function(req,res){
 });
 
 // #5 EDIT ROUTE
-
+app.get('/blogs/:id/edit', function(req,res){
+    // *1* retreive data for specific id
+    Blog.findById(req.params.id, function(err,foundData){
+        if (err) {
+            res.redirect("/blogs")
+        } else {
+            // *2* pass data to the rendered page
+            res.render('edit', {blog: foundData})
+        }
+    });
+});
 
 // #6 UPDATE ROUTE
-
+app.put('/blogs/:id', function(req,res){
+    Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, updatedData){
+      if (err) {
+        res.redirect("/blogs")
+      } else {
+        res.redirect("/blogs")
+      }
+    });
+});
 
 // #7 DESTROY ROUTE
 
