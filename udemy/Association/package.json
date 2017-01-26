@@ -1,0 +1,14 @@
+{
+  "name": "association-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "embed.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "YU ZHOU",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^4.7.8"
+  }
+}

@@ -23,6 +23,7 @@ var blogSchema = new mongoose.Schema({
     body :  String,
     created: {type: Date, default: Date.now}
 });
+
 var Blog = mongoose.model("Blog", blogSchema);
 
 
