@@ -5,6 +5,9 @@ var express = require("express"),
     app = express(),
     bodyParser = require("body-parser"),
     mongoose = require("mongoose"),
+    passport = require('passport'),
+    User = require('./models/user'),
+    LocalStrategy = require('passport-local'),
     Campground = require("./models/campground"),
     Comment = require("./models/comment"),
     seedDB = require("./seed");
@@ -20,12 +23,27 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 seedDB();
 
+/* PASSPORT CONFIG */
+app.use(require('express-session')({
+      secret: "Rusty sucks",
+      resave: false,
+      saveUninitialized: false,
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
+
 /*===================
    CAMPGROUNDS ROUTE
 ====================*/
 
 app.get("/", function(req, res) {
-    res.redirect("/campgrounds");
+    res.render("home");
 });
 
 /* 1. INDEX ROUTE */
@@ -119,10 +137,48 @@ app.post("/campgrounds/:id/comments", function(req,res){
           });
         }
     });
-    //create new comments
-    //connect new comments to campground
-    //redirect to campground show page
+
 });
+
+/*===================
+ AUTHENTICATION ROUTE
+====================*/
+
+/* SIGN-UP ROUTE */
+app.get('/register', function(req,res){
+      res.render('register');
+});
+
+// Handler
+app.post('/register', function(req,res){
+    var newUser = new User({username: req.body.username});
+    User.register(newUser, req.body.password, function(err, user){
+        if (err) {
+              console.log(err);
+              return res.render("register");
+        }
+        //log user in here. this code repeat later in log in route
+        passport.authenticate("local")(req, res, function(){
+          res.redirect("/campgrounds");
+        });
+    });
+});
+
+
+/* LOGIN ROUTE */
+app.get('/login',function(req,res){
+    res.render('login');
+});
+
+//app.post("/login", middleware, function)
+app.post("/login", passport.authenticate("local",
+    {
+        successRedirect: '/campgrounds',
+        failureRedirect: '/login'
+    }), function(req,res){
+});
+
+
 
 
 app.listen(3000, function() {
