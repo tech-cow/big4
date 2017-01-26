@@ -1,0 +1,17 @@
+<% include partials/header %>
+
+<h1>This is the show template</h1>
+<img src="<%= campground.image %>" alt="">
+
+<p><%= campground.name %></p>
+
+<p><%= campground.description %></p>
+
+
+<% campground.comments.forEach(function(comment){ %>
+  <p>
+      <strong><%= comment.author  %></strong> - <%= comment.text  %>
+  </p>
+<% }) %>
+
+<% include partials/footer %>
