@@ -20,11 +20,20 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">YelpCamp</a>
+      <a href="/campgrounds" class="navbar-brand" href="#">YelpCamp</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <%# <li><a href="#">Link</a></li>%>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+          <%if (!currentUser) {  %>
+              <li><a href="/login">Login</a></li>
+              <li><a href="/register">Sign up</a></li>
+          <%}else{  %>
+              <li><a href="#">Signed in as <%= currentUser.username %></a></li>
+              <li><a href="/logout">Log out</a></li>
+          <%}; %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
