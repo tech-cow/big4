@@ -24,34 +24,34 @@ var data = [
 function seedDB(){
     // *1* Remove all Campgrounds
     Compground.remove({},function(err){
-        if (err) {
-          console.log(err);
-        } else {
-          console.log("removed campgrounds");
-          // *2* Add a few Campgrounds
-          data.forEach(function(seed){
-            Compground.create(seed, function(err,campground){
-              if (err) {
-                  console.log(err);
-              } else {
-                  console.log('Added a campground');
-                  Comment.create(
-                    {
-                        text: "Wow, this suck!",
-                        author: "Yu"
-                    }, function(err, comment){
-                        if (err) {
-                            console.log(err);
-                        } else {
-                            campground.comments.push(comment);
-                            campground.save();
-                            console.log("creating new comments");
-                        }
-                    });
-              }
-            });
-          });
-        }
+        // if (err) {
+        //   console.log(err);
+        // } else {
+        //   console.log("removed campgrounds");
+        //   // *2* Add a few Campgrounds
+        //   data.forEach(function(seed){
+        //     Compground.create(seed, function(err,campground){
+        //       if (err) {
+        //           console.log(err);
+        //       } else {
+        //           console.log('Added a campground');
+        //           Comment.create(
+        //             {
+        //                 text: "Wow, this suck!",
+        //                 author: "Yu"
+        //             }, function(err, comment){
+        //                 if (err) {
+        //                     console.log(err);
+        //                 } else {
+        //                     campground.comments.push(comment);
+        //                     campground.save();
+        //                     console.log("creating new comments");
+        //                 }
+        //             });
+        //       }
+        //     });
+        //   });
+        // }
     });
 
     // *3* Add a few Campgrounds

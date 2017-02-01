@@ -1,13 +1,14 @@
 var express = require("express");
-var router = express.Router();
+var router = express.Router({mergeParams: true});
 var Campground = require('../models/campground');
 var Comment = require('../models/comment');
+
 /*===================
    COMMENTS ROUTE
 ====================*/
 
-/* 1. NEW ROUTE */
-router.get("/campgrounds/:id/comments/new", isLoggedIn, function(req,res){
+/* 1. COMMENTS NEW */
+router.get("/new", isLoggedIn, function(req,res){
     //find campgrounds by id
     Campground.findById(req.params.id, function(err,campground){
         if (err) {
@@ -18,8 +19,8 @@ router.get("/campgrounds/:id/comments/new", isLoggedIn, function(req,res){
     });
 });
 
-/* 2. CREATE ROUTE */
-router.post("/campgrounds/:id/comments", function(req,res){
+/* 2. COMMENTS CREATE */
+router.post("/", function(req,res){
     //look up campground using id
     Campground.findById(req.params.id, function(err, campground){
         if (err) {
@@ -30,6 +31,11 @@ router.post("/campgrounds/:id/comments", function(req,res){
               if (err) {
                   console.log(err);
               } else {
+                /* Add username and id to comment */
+                  comment.author.id = req.user._id;
+                  comment.author.username = req.user.username;
+                /* save comment */
+                  comment.save();
                   campground.comments.push(comment);
                   campground.save();
                   res.redirect('/campgrounds/' + campground._id);
