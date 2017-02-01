@@ -7,7 +7,7 @@ valueArray= []
 
 print "\n"
 print "  ARRAY"
-for i in range(50):
+for i in range(30):
     indexArray.append(i+1)
     valueArray.append(randint(10,20))
 
@@ -40,22 +40,23 @@ def deleteValueByIndex(index):
 # Insert Value
 def insertValueByIndex(index, value):
     if index < arraySize:
-        # Reverse traversal, cur = cur - 1
+    # Reverse traversal, cur = cur - 1
         for i in range(arraySize+1,index-1,-1):
             valueArray[i]= valueArray[i-1]
-        # Replace Value
+    # Replace Value
         valueArray[index-1] = value
         global arraySize
-        # Increment arraySize
+    # Increment arraySize
         arraySize +=  1
 
-#index + 1 =  index
-# replace current index with intended value
-
-#increment arraySize
-
 # Linear search Value
-
+def linearSearch(value):
+    resultString = ""
+    for i in range(arraySize):
+        if valueArray[i] == value:
+            resultString += str(i+1) + " "
+            isResult = True
+    return resultString
 # Sort array
 
 
@@ -68,5 +69,6 @@ print "Value 15 exists?           ", valueExistence(15)
 print "Value at Index 3:          ",findValueByIndex(3)
 # print "Delete Index 3:            ", deleteValueByIndex(1)
 print "Insert (4,20)              ", insertValueByIndex(7,100)
+print "Is there a 15 in the string? " , linearSearch(15)
 
 displayArray()
