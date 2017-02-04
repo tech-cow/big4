@@ -33,7 +33,7 @@ def swap(arr, num_1, num_2):
 
 
 def bubbleSort(array):
-    for i in range(len(array)-1,1,-1):
+    for i in range(len(array)-1,0,-1):
         for j in range(0,i):
             if (array[j] > array[j+1]):
                 swap(array,j,j+1)
