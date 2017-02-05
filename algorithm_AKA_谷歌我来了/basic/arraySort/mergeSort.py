@@ -8,6 +8,18 @@
 # 把Array对半分解，直到每个Array里面只有一个数，
 # 然后在开始对这些subset进行排序，排序完了进行合并，直到合并完成
 #=======================================================================
+def mergeSort(alist):
+    if len(alist) <= 1:
+        return alist
+
+    #Array给拆了，先得把它拆解掉
+    mid = len(alist)/2
+    #因为Recursive了，所以mergeSort这个方程会进行到底，知道list里只剩下一个值
+    left = mergeSort(alist[:mid])
+    right = mergeSort(alist[mid:])
+    return merge(left,right)
+
+
 def merge(leftAlist,rightAlist):
     result = []
     #当两边的Array都还有数的时候，互相对比，然后把最小值放进新的Array
@@ -30,16 +42,7 @@ def merge(leftAlist,rightAlist):
 
     return result
 
-def mergeSort(alist):
-    if len(alist) <= 1:
-        return alist
 
-    #Array给拆了，先得把它拆解掉
-    mid = len(alist)/2
-    #因为Recursive了，所以mergeSort这个方程会进行到底，知道list里只剩下一个值
-    left = mergeSort(alist[:mid])
-    right = mergeSort(alist[mid:])
-    return merge(left,right)
 
 #Test
 if __name__ == "__main__":
