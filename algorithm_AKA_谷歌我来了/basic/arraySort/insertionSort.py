@@ -22,7 +22,7 @@ def insertionSort(alist):
             alist[j-1],alist[j] = alist[j],alist[j-1]  #pyhon里面特有的Swap格式
             j = j -1  #递减
     return alist
-    
+
 # Test
 print "-------------Test-------------"
 A = [2,1,3,9,7,99,10,38,18]
