@@ -2,7 +2,7 @@
 #coding:utf-8   这样就可以打中文了
 #=======================================================================
 #  Author: Yu Zhou
-#  Title: Insertion Sort
+#  Title: Merge Sort
 #
 # 算法核心：
 # 把Array对半分解，直到每个Array里面只有一个数，
@@ -40,11 +40,6 @@ def mergeSort(alist):
     left = mergeSort(alist[:mid])
     right = mergeSort(alist[mid:])
     return merge(left,right)
-
-
-
-
-
 
 #Test
 if __name__ == "__main__":
