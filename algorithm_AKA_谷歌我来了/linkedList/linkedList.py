@@ -103,7 +103,7 @@ class LinkedList (object):
                 current = current.getNext()
         if current is None:  #当Loop完以后，current指向Null，切没有按照While里面的Condition找到数，就返回Error
             raise ValueError("Data not found")
-        if previous is None:        #What is this corner case for?    
+        if previous is None:        #What is this corner case for?
             self.head = current.getNext()
         else:
             previous.setNext(current.getNext())
