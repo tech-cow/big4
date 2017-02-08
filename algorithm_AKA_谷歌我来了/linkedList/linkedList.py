@@ -30,10 +30,10 @@
 
 
 class Node(object):
-    def __init__ (self, data):
+    def __init__ (self, data, n = None):
     #Private
-        self._data = None
-        self._next = None    #指针默认指向NULL
+        self._data = data
+        self._next = n    #指针默认指向NULL
 
     #Getter & Setter
     def getData(self):
@@ -70,18 +70,6 @@ class LinkedList (object):
             current = current.getNext()
         return count
 
-    def search(self,data):
-        current = self.head
-        found = False
-        while current and found is False:   #这里用and和or都行？
-            if current.getData == data:
-                found = True
-            else:
-                current = current.getNext()
-        if current is None:  #当Loop完以后，current指向Null，切没有按照While里面的Condition找到数，就返回Error
-            raise ValueError("Data not found")
-        return current
-
     def display(self):
         alist = []
         current = self.head
@@ -90,6 +78,37 @@ class LinkedList (object):
             current = current.getNext()
         return alist
 
+    def search(self,data):
+        current = self.head
+        found = False
+        while current and found is False:   #这里用and和or都行？
+            if current.getData() == data:
+                found = True
+            else:
+                current = current.getNext()
+        if current is None:  #当Loop完以后，current指向Null，切没有按照While里面的Condition找到数，就返回Error
+            raise ValueError("Data not found")
+        return current
+
+    def delete(self,data):
+        current = self.head
+        previous = None
+        found = False
+
+        while current and found is False:   #这里用and和or都行？
+            if current.getData() == data:
+                found = True
+            else:
+                previous = current        # Loop，每次循环一次，将循环完的Node保存到一个函数Previous，之后方便调用
+                current = current.getNext()
+        if current is None:  #当Loop完以后，current指向Null，切没有按照While里面的Condition找到数，就返回Error
+            raise ValueError("Data not found")
+        if previous is None:        #What is this corner case for?    
+            self.head = current.getNext()
+        else:
+            previous.setNext(current.getNext())
+
+
 
 # test
 if __name__ == '__main__':
@@ -97,9 +116,8 @@ if __name__ == '__main__':
     print newList.isEmpty()
     newList.insert("ads")
     newList.insert(5)
-    print newList.search(5)
     newList.insert(10)
-    #所以说，数是输进去了，就是输错了
     print newList.isEmpty()
-
+    print newList.display()
+    newList.delete("ads")
     print newList.display()

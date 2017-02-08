@@ -64,7 +64,7 @@ def partition(alist,min,max):
 
     counterWall = min    # “墙”来也
 
-    for i in range(min,len(alist)):
+    for i in range(min,max+1):
         if alist[i] < pivotValue:
             counterWall += 1
             alist[i],A[counterWall] = A[counterWall],alist[i]
