@@ -7,6 +7,7 @@
 #  Reference:
 # 1. https://www.youtube.com/watch?v=oSWTXtMglKE  #大致
 # 2. https://www.youtube.com/watch?v=gm8DUJJhmY4  #PreOrder,InOrder，和PostOrder讲得好
+# 3. https://github.com/minsuk-heo/problemsolving/blob/master/data_structure/BinaryTree.py  写的让我舒服的代码
 #=======================================================================
 class Node(object):
     def __init__(self, data, left=None, right=None, parent=None):
@@ -19,11 +20,6 @@ class Tree(object):
     def __init__(self):
         #先设置一个空的Node，之后再Insert的时候往里面放数
         self.root = Node(None)
-
-        #test purpose lists
-        self.preOrderList = []
-        self.inOrderList = []
-        self.postOrderList = []
 
     def search(self, newData):
         if self.root.data == None:
@@ -73,8 +69,6 @@ class Tree(object):
     def __inOrderTraversal(self,root):
         if root.left:
             self.__inOrderTraversal(root.left)
-        #Append list & Print
-        self.inOrderList.append(root.data)
         print root.data
         if root.right:
             self.__inOrderTraversal(root.right)
@@ -84,8 +78,6 @@ class Tree(object):
             self.__preOrderTraversal(self.root)
 
     def __preOrderTraversal(self,root):
-        #Append list & Print
-        self.preOrderList.append(root.data)
         print root.data
         if root.left:
             self.__preOrderTraversal(root.left)
@@ -102,13 +94,54 @@ class Tree(object):
             self.__postOrderTraversal(root.left)
         if root.right:
             self.__postOrderTraversal(root.right)
-        #Append list & Print
-        self.postOrderList.append(root.data)
         print root.data
 
+    def delete(self,newData):
+        if self.root.data == None:
+            print 'The tree is empty'
+        else:
+            self.__delete(self.root, newData)
 
+    def __delete(self, root, newData):
+        if newData < root.data:
+            if root.left:
+                self.__delete(root.left, newData)
+            else:
+                return False
+        elif newData > root.data:
+            if root.right:
+                self.__delete(root.right, newData)
+            else:
+                return False
+        elif newData == root.data:
+            #case 1, root has no child
+            if root.left is None and root.right is None:
+                root = None
+            #case 2, root has one child (left)
+            elif root.left is not None and root.right is None:
+                root.data = root.left.data
+                root.left = None
+            elif root.right is not None and root.left is None:
+                root.data = root.right.data
+                root.left = None
+            else:
+                root.data = self.__minValueToRightSubtree(root.right).data
+                self.__deleteMinValueToRightSubtree(root.right)
+        else:
+            print "Can't find this number"
 
+    def __minValueToRightSubtree(self, root):
+        if root.left is None:
+            return root
+        else:
+            return self.__minValueToRightSubtree(root.left)
 
+    def __deleteMinValueToRightSubtree(self, root):
+        if root.left is None:
+            root = None
+            return root
+        else:
+            self.__minValueToRightSubtree(root.left)
 
 
 
@@ -122,14 +155,20 @@ if __name__ == '__main__':
     bst.insert(1)
     bst.insert(7)
 
-    print("pre order")
-    bst.preOrderTraversal()
+    # print("pre order")
+    # bst.preOrderTraversal()
     # self.assertEqual(bst.preOrderList, [5,3,1,4,7])
 
     print("in order")
     bst.inOrderTraversal()
+    bst.delete(1)
+    print("after deletion: in order")
+    bst.inOrderTraversal()
+
+
+
     # self.assertEqual(bst.inOrderList, [1,3,4,5,7])
 
-    print("post order")
-    bst.postOrderTraversal()
+    # print("post order")
+    # bst.postOrderTraversal()
     # self.assertEqual(bt.postOrderList, [1,3,4,5,7])
