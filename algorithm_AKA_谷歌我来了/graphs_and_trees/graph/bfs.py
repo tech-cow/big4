@@ -2,7 +2,7 @@
 #coding:utf-8
 #=======================================================================
 #  Author: Yu Zhou
-#  Title: Adjacency List
+#  Title: OOP Adjacency List
 #=======================================================================
 
 class Node(object):
@@ -23,7 +23,8 @@ class Node(object):
 
 class Graph():
 	def __init__(self):
-		self.nodes = {}
+		self.nodes = {} #这个hash用来存node的key，然后reference到node，然后再通过
+						# node.neighbor去access，node里面自带的neighbor array
 
 	def add_node(self, node):
 		#check if node's key is  already exist in the nodes hashtable
