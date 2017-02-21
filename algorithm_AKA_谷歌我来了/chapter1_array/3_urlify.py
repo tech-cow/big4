@@ -15,17 +15,8 @@ class ClassName(object):
 
         next_i = 1
         for i in range(len(s)):
-            cur = s[i]
-            while s[next_i] != None:  #check if n exist
-                if cur == ' ' and s[next_i] == ' ':
-                    s.pop(cur)
-                if cur == ' ' and s[next_i] != ' ':
-                    cur = '%20'
-                # if s[i+1]:
-                next_i = i+1
-                print next_i
-            return s
 
+            
 if __name__ == '__main__':
     s = ClassName()
     print s.urlify('Mr John Smith    ')
