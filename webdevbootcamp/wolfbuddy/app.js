@@ -30,6 +30,7 @@ var blogSchema = mongoose.Schema({
 // create a mondel
 var Blog = mongoose.model('Blog', blogSchema);
 
+
 /**
   *TEST*
   Blog.create({
@@ -50,13 +51,14 @@ app.get("/blogs",function(req,res){
   // *1* get data from database
   Blog.find({}, function(err,foundData){
       if (err) {
-          res.redirect("/blogs")
+          res.redirect("/blogs");
       } else {
           // *2* pass data to the rendered page
-          res.render('index', {blogs: foundData})
+          res.render('index', {blogs: foundData});
       }
   });
 });
+
 
 
 // #2: NEW ROUTE
@@ -70,22 +72,22 @@ app.post("/blogs", function(req,res){
   // *1* Gather data from the name attribute in form (I named it blog)
   Blog.create(req.body.blog, function(err, newBlog){
       if (err) {
-          res.render("new")
+          res.render("new");
       } else {
         // *2* Post it back (redirect) to the blog site
           res.redirect("/blogs");
       }
-  })
+  });
 });
 
 // #4 SHOW ROUTE
 app.get("/blogs/:id", function(req,res){
   Blog.findById(req.params.id, function(err,foundData){
       if (err) {
-          res.redirect("/blogs")
+          res.redirect("/blogs");
       } else {
           // *2* pass data to the rendered page
-          res.render('show', {blog: foundData})
+          res.render('show', {blog: foundData});
       }
   });
 });
@@ -95,10 +97,10 @@ app.get('/blogs/:id/edit', function(req,res){
     // *1* retreive data for specific id
     Blog.findById(req.params.id, function(err,foundData){
         if (err) {
-            res.redirect("/blogs")
+            res.redirect("/blogs");
         } else {
             // *2* pass data to the rendered page
-            res.render('edit', {blog: foundData})
+            res.render('edit', {blog: foundData});
         }
     });
 });
