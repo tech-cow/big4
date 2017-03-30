@@ -1,9 +1,27 @@
 from LinkedList import LinkedList
 
-#p1 is kth position apart from p2
-#while p1 gets to null, return p2
-
+#Iterate Method 1:
 def kth_to_last(ll, k):
+    count = 0
+    runner = ll.head
+
+    # Calculate Length
+    while runner:
+        count += 1
+        runner = runner.next
+
+    size = count - k
+    
+    index = 0
+    cur = ll.head
+
+    for _ in xrange(size):
+        cur = cur.next
+    return cur
+
+
+#Iterate Method 2:
+def kth_to_last_2(ll, k):
     p1 = p2 = ll.head
 
     #set p1's position to be kth apart from p2
@@ -24,3 +42,4 @@ ll = LinkedList()
 ll.generate(10, 0, 99)
 print(ll)
 print(kth_to_last(ll, 3))
+print(kth_to_last_2(ll, 3))

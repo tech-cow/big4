@@ -1,52 +1,20 @@
-from LinkedList import LinkedList
+    carry = 0
+    n1, n2  = ll_a.head, ll_b.head
+    ll = LinkedList()
 
-#Temp Buffer allowed: use hash table
-def remove_dups(ll):
-    if ll.head is None:
-        return
+    while n1 or n2:
+        sum_count = carry
+        if n1:
+            sum_count += n1.value
+            n1 = n1.next
+        if n2:
+            sum_count += n2.value
+            n2 = n2.next
 
-    hash = {}
-    cur = ll.head
+        ll.add(sum_count% 10)
+        carry = sum_count // 10
 
-    while cur.next:
-        if cur.next.value in hash:
-            cur.next = cur.next.next
-        else:
-            hash[cur.next.value] = 1
-            cur = cur.next
+    if carry:
+        res.add(carry)
+
     return ll
-
-#Temp Buffer not allowed?
-# 2 pointer
-def remove_dups_followup(ll):
-    if ll.head is None:
-        return
-
-    cur = ll.head
-    while cur:
-        runner = cur
-        while runner.next:
-            if runner.next.value == cur.value:
-                runner.next = runner.next.next
-            else:
-                runner = runner.next
-        cur = cur.next
-    return ll
-
-
-
-
-
-
-
-
-ll = LinkedList()
-ll.generate(10, 0, 9)
-print(ll)
-remove_dups(ll)
-print(ll)
-
-ll.generate(10, 0, 9)
-print(ll)
-remove_dups_followup(ll)
-print(ll)
