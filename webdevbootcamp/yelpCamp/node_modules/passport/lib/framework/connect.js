@@ -15,25 +15,13 @@ var initialize = require('../middleware/initialize')
  * @return {Object}
  * @api protected
  */
-exports = module.exports = function() {
+module.exports = function() {
   
   // HTTP extensions.
-  exports.__monkeypatchNode();
+  require('../http/request');
   
   return {
     initialize: initialize,
     authenticate: authenticate
   };
-};
-
-exports.__monkeypatchNode = function() {
-  var http = require('http');
-  var IncomingMessageExt = require('../http/request');
-  
-  http.IncomingMessage.prototype.login =
-  http.IncomingMessage.prototype.logIn = IncomingMessageExt.logIn;
-  http.IncomingMessage.prototype.logout =
-  http.IncomingMessage.prototype.logOut = IncomingMessageExt.logOut;
-  http.IncomingMessage.prototype.isAuthenticated = IncomingMessageExt.isAuthenticated;
-  http.IncomingMessage.prototype.isUnauthenticated = IncomingMessageExt.isUnauthenticated;
 };

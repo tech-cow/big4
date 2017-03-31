@@ -1,11 +1,10 @@
-<% include partials/header %>
+<% include ./partials/header %> 
 
-<h1>Log in</h1>
-
-<form action="/login" method="post">
+<h1>Login!</h1>
+<form action="/login" method="POST">
     <input type="text" name="username" placeholder="username">
     <input type="password" name="password" placeholder="password">
-    <button>Login</button>
+    <input type="submit" value="Login!">
 </form>
 
-<% include partials/footer %>
+<% include ./partials/footer %> 

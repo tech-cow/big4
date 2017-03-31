@@ -1,9 +1,9 @@
 var mongoose = require("mongoose");
-//CAMPGROUNDS SCHEMA SETUP
-var commentSchema = new mongoose.Schema({
+
+var commentSchema = mongoose.Schema({
     text: String,
     author: {
-        id:{
+        id: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
         },

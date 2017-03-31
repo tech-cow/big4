@@ -30,9 +30,14 @@ module.exports = function query(options) {
     opts = undefined;
   }
 
-  if (opts !== undefined && opts.allowPrototypes === undefined) {
-    // back-compat for qs module
-    opts.allowPrototypes = true;
+  if (opts !== undefined) {
+    if (opts.allowDots === undefined) {
+      opts.allowDots = false;
+    }
+
+    if (opts.allowPrototypes === undefined) {
+      opts.allowPrototypes = true;
+    }
   }
 
   return function query(req, res, next){

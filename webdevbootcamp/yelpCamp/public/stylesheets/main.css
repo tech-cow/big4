@@ -1,16 +1,15 @@
-/*show.ejs*/
-.thumbnail img{
+.thumbnail img {
     width: 100%;
 }
 
-.thumbnail{
-    padding: 0px;
+.thumbnail {
+    padding: 0;
 }
 
-.thumbnail .caption-full{
+.thumbnail .caption-full {
     padding: 9px;
 }
 
-#delete-form{
+#delete-form {
     display: inline;
 }
